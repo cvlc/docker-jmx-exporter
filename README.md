@@ -1,8 +1,8 @@
 
-Example to start using jmx-exporter within a Docker container to scrap kafka:
+## Build
 
-    docker run -p 9138:9138 yagni/jmx-exporter:0.7-SNAPSHOT https://raw.githubusercontent.com/prometheus/jmx_exporter/master/example_configs/kafka-0-8-2.yml
+    docker build -t cvlc/jmx-exporter .
 
-Build
+## Example (Kafka)
 
-    docker build -t yagni/jmx-exporter:0.7-SNAPSHOT  .
+    docker run -d -e REMOTE_HOST=kafka:9010 -p 9138 cvlc/jmx-exporter "https://raw.githubusercontent.com/prometheus/jmx_exporter/master/example_configs/kafka-0-8-2.yml"
